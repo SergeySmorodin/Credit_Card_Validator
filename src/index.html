@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валидатор банковских карт</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Проверка банковской карты</h1>
+            <p>Введите номер карты для проверки валидности и определения платёжной системы</p>
+        </header>
+
+        <main class="main-content">
+            <div class="payment-icons">
+                <div class="icon-container" data-system="visa">
+                    <img src="img/visa.png" alt="Visa" class="payment-icon">
+                </div>
+                <div class="icon-container" data-system="mastercard">
+                    <img src="img/mastercard.png" alt="Mastercard" class="payment-icon">
+                </div>
+                <div class="icon-container" data-system="mir">
+                    <img src="img/mir.png" alt="Мир" class="payment-icon">
+                </div>
+                <div class="icon-container" data-system="amex">
+                    <img src="img/amex.png" alt="American Express" class="payment-icon">
+                </div>
+                <div class="icon-container" data-system="discover">
+                    <img src="img/discover.png" alt="Discover" class="payment-icon">
+                </div>
+                <div class="icon-container" data-system="jcb">
+                    <img src="img/jcb.png" alt="JCB" class="payment-icon">
+                </div>
+            </div>
+
+            <div class="card-form">
+                <div class="input-group">
+                    <label for="cardNumber" class="input-label">Номер карты</label>
+                    <div class="input-with-button">
+                        <input 
+                            type="text" 
+                            id="cardNumber" 
+                            class="card-input" 
+                            placeholder="1234 5678 9012 3456"
+                            maxlength="19"
+                            autocomplete="off"
+                        >
+                        <button type="button" id="validateBtn" class="validate-btn">
+                            Проверить
+                        </button>
+                    </div>
+                    <div class="hint">Введите 13-16 цифр номера карты</div>
+                </div>
+
+                <div class="result" id="result"></div>
+
+                <div class="test-cards">
+                    <h3>Тестовые номера:</h3>
+                    <div class="test-card-list">
+                        <div class="test-card" data-number="4111111111111111">
+                            <span class="test-number">4111 1111 1111 1111</span>
+                            <span class="test-badge visa-badge">Visa</span>
+                        </div>
+                        <div class="test-card" data-number="5555555555554444">
+                            <span class="test-number">5555 5555 5555 4444</span>
+                            <span class="test-badge mastercard-badge">Mastercard</span>
+                        </div>
+                        <div class="test-card" data-number="2204123456789101">
+                            <span class="test-number">2204 1234 5678 9101</span>
+                            <span class="test-badge mir-badge">Мир</span>
+                        </div>
+                        <div class="test-card" data-number="378282246310005">
+                            <span class="test-number">3782 822463 10005</span>
+                            <span class="test-badge amex-badge">Amex</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Валидатор работает локально. Данные никуда не отправляются.</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
