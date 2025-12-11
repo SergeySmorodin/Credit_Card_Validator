@@ -1,4 +1,4 @@
-export const CardUtils = {
+export const CardUlits = {
 
     // Возвращает читаемое название платежной системы
     getDisplayName(systemCode) {

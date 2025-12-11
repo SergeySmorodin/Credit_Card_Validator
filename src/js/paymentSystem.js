@@ -3,12 +3,12 @@
  **/
 
 
-import { CardUtils } from "./cardUtils";
+import { CardUlits } from "./cardUlits";
 
 
 export const PaymentSystem = {
   detect(cardNumber) {
-    const cleaned = CardUtils.cleanCardNumber(cardNumber);
+    const cleaned = CardUlits.cleanCardNumber(cardNumber);
     
     if (!cleaned || cleaned.length < 6) {
       return null;
