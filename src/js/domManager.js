@@ -1,6 +1,5 @@
 import { CardUlits } from "./cardUlits";
 
-
 export class DOMManager {
   constructor() {
     this.elements = {};
@@ -137,7 +136,7 @@ export class DOMManager {
         const formattedValue = CardUlits.formatCardNumber(value);
         input.value = formattedValue.substring(0, 19);
       };
-  
+
       this.elements.cardInput.addEventListener("input", (e) => {
         formatCardInput(e.target);
         if (callback) {

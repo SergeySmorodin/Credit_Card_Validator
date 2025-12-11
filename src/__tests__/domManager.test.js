@@ -1,6 +1,5 @@
 import { DOMManager } from "../js/domManager.js";
 
-
 // mock для тестов
 beforeEach(() => {
   document.body.innerHTML = `
@@ -47,7 +46,6 @@ describe("DOMManager", () => {
       domManager.elements.cardInput.value = "4111111111111111";
       expect(domManager.getCardNumber()).toBe("4111111111111111");
     });
-
 
     test("должен форматировать и устанавливать номер карты", () => {
       domManager.formatAndSetCardNumber("4111111111111111");
@@ -112,27 +110,27 @@ describe("DOMManager", () => {
       domManager.showValidationResult({
         isValid: true,
         paymentSystem: "visa",
-        cardNumber: "4111111111111111"
+        cardNumber: "4111111111111111",
       });
-  
+
       const resultDiv = domManager.elements.resultDiv;
-      
+
       expect(resultDiv.className).toBe("result valid");
       expect(resultDiv.style.display).toBe("block");
       expect(resultDiv.innerHTML).toContain("✅ Карта валидна!");
       expect(resultDiv.innerHTML).toContain("Платёжная система: Visa");
       expect(resultDiv.innerHTML).toContain("Номер: 4111 1111 1111 1111");
     });
-  
+
     test("должен отображать невалидную карту", () => {
       domManager.showValidationResult({
         isValid: false,
         paymentSystem: "visa",
-        cardNumber: "4111111111111112"
+        cardNumber: "4111111111111112",
       });
-  
+
       const resultDiv = domManager.elements.resultDiv;
-      
+
       expect(resultDiv.className).toBe("result invalid");
       expect(resultDiv.innerHTML).toContain("❌ Карта недействительна");
     });

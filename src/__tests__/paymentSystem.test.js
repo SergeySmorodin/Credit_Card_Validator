@@ -2,7 +2,6 @@ import { PaymentSystem } from "../js/paymentSystem.js";
 
 describe("PaymentSystem", () => {
   describe("detect", () => {
-
     test("должен определять Visa", () => {
       expect(PaymentSystem.detect("4111111111111111")).toBe("visa");
       expect(PaymentSystem.detect("4012888888881881")).toBe("visa");
@@ -52,7 +51,6 @@ describe("PaymentSystem", () => {
   });
 
   describe("методы проверки отдельных систем", () => {
-
     test("isVisa должен правильно определять Visa", () => {
       expect(PaymentSystem.isVisa("4111111111111111")).toBe(true);
       expect(PaymentSystem.isVisa("5111111111111111")).toBe(false);

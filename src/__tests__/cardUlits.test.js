@@ -22,19 +22,24 @@ describe("Проверка вспомогательных функций", () =>
 
   describe("formatCardNumber", () => {
     test("должен добавлять пробелы через каждые 4 цифры", () => {
-        expect(CardUlits.formatCardNumber("4111111111111111")).toBe("4111 1111 1111 1111");
-        expect(CardUlits.formatCardNumber("123")).toBe("123");
-
+      expect(CardUlits.formatCardNumber("4111111111111111")).toBe(
+        "4111 1111 1111 1111",
+      );
+      expect(CardUlits.formatCardNumber("123")).toBe("123");
     });
   });
 
   describe("cleanCardNumber", () => {
     test("должен очищать номер карты от пробелов", () => {
-      expect(CardUlits.cleanCardNumber("4111 1111 1111 1111")).toBe("4111111111111111");
+      expect(CardUlits.cleanCardNumber("4111 1111 1111 1111")).toBe(
+        "4111111111111111",
+      );
     });
 
     test("должен очищать номер карты от дефисов", () => {
-      expect(CardUlits.cleanCardNumber("4111-1111-1111-1111")).toBe("4111111111111111",);
+      expect(CardUlits.cleanCardNumber("4111-1111-1111-1111")).toBe(
+        "4111111111111111",
+      );
     });
 
     test("должен возвращать пустую строку если нет цифр", () => {

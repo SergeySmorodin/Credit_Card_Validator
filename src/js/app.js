@@ -51,4 +51,3 @@ class CardValidationApp {
 document.addEventListener("DOMContentLoaded", () => {
   new CardValidationApp();
 });
-

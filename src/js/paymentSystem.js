@@ -2,14 +2,12 @@
  * Определения платежной системы по номеру карты
  **/
 
-
 import { CardUlits } from "./cardUlits";
-
 
 export const PaymentSystem = {
   detect(cardNumber) {
     const cleaned = CardUlits.cleanCardNumber(cardNumber);
-    
+
     if (!cleaned || cleaned.length < 6) {
       return null;
     }
@@ -18,7 +16,7 @@ export const PaymentSystem = {
     if (this.isVisa(cleaned)) {
       return "visa";
     }
- 
+
     // Mastercard: начинается с 51-55 или 2221-2720
     if (this.isMastercard(cleaned)) {
       return "mastercard";
@@ -91,7 +89,7 @@ export const PaymentSystem = {
 
   isDinersClub(cardNumber) {
     return /^3[689]/.test(cardNumber) || /^30[0-5]/.test(cardNumber);
-  }
+  },
 };
 
 if (typeof module !== "undefined" && module.exports) {

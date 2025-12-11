@@ -1,5 +1,4 @@
 export const CardValidator = {
-
   validate(cardNumber) {
     if (!this.isValidFormat(cardNumber)) {
       return false;
@@ -25,17 +24,24 @@ export const CardValidator = {
   },
 
   luhnCheck(cardNumber) {
-    const cleaned = cardNumber.replace(/\D/g, '');
-    
-    return cleaned.split('').reverse().reduce((sum, digit, index) => {
-      const num = parseInt(digit, 10);
-      // Удваиваем четные позиции после reverse
-      if (index % 2 === 1) {
-        return sum + (num * 2 > 9 ? num * 2 - 9 : num * 2);
-      }
-      return sum + num;
-    }, 0) % 10 === 0;
-  }
+    const cleaned = cardNumber.replace(/\D/g, "");
+
+    return (
+      cleaned
+        .split("")
+        .reverse()
+        .reduce((sum, digit, index) => {
+          const num = parseInt(digit, 10);
+          // Удваиваем четные позиции после reverse
+          if (index % 2 === 1) {
+            return sum + (num * 2 > 9 ? num * 2 - 9 : num * 2);
+          }
+          return sum + num;
+        }, 0) %
+        10 ===
+      0
+    );
+  },
 };
 
 if (typeof module !== "undefined" && module.exports) {
