@@ -1,11 +1,15 @@
 /**
- Определения платежной системы по номеру карты
+ * Определения платежной системы по номеру карты
  **/
+
+
+import { CardUtils } from "./cardUtils";
+
 
 export const PaymentSystem = {
   detect(cardNumber) {
-    const cleaned = this.cleanCardNumber(cardNumber);
-
+    const cleaned = CardUtils.cleanCardNumber(cardNumber);
+    
     if (!cleaned || cleaned.length < 6) {
       return null;
     }
@@ -44,10 +48,8 @@ export const PaymentSystem = {
     if (this.isDinersClub(cleaned)) {
       return "diners";
     }
-
     return null;
   },
-
 
   isVisa(cardNumber) {
     return /^4/.test(cardNumber);
@@ -89,12 +91,7 @@ export const PaymentSystem = {
 
   isDinersClub(cardNumber) {
     return /^3[689]/.test(cardNumber) || /^30[0-5]/.test(cardNumber);
-  },
-
-  // Очищает номер карты от пробелов
-  cleanCardNumber(cardNumber) {
-    return cardNumber.replace(/\s/g, "");
-  },
+  }
 };
 
 if (typeof module !== "undefined" && module.exports) {
